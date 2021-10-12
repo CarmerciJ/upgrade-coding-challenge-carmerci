@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Upgrade - Select Offers Scenario" verbose="1">
+    <test verbose="1" name="Upgrade - validate offers page flow">
+        <classes>
+            <class name="com.upgrade.tests.LoanOffersUITest">
+                <methods>
+                    <include name="validateOffersTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
