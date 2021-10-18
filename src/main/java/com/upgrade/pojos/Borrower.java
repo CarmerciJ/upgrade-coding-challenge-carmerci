@@ -22,6 +22,11 @@ public class Borrower {
     @Setter @Getter String loanPurpose;
     @Setter @Getter BigDecimal yearlyIncome;
     @Setter @Getter BigDecimal additionalIncome;
+    @Setter @Getter BigDecimal approvedLoanAmount;
+    @Setter @Getter double monthlyPayment;
+    @Setter @Getter String termLength;
+    @Setter @Getter double interestRate;
+    @Setter @Getter double apr;
 
 }
 

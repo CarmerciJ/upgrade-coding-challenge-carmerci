@@ -27,10 +27,13 @@ public class IncomeInfoPage extends BasePage {
 
     public LoginInfoPage enterIncomeDetails(Borrower randomPerson) {
         type(yearlyIncome, randomPerson.getYearlyIncome().toString());
+        pause(4);
         javaScriptFocusOnElement(additionalIncome);
         confirmIncomeModal(randomPerson);
+        pause(4);
         type(additionalIncome, randomPerson.getAdditionalIncome().toString());
         blur();
+        pause(4);
         click(continueIncomeInfo);
         return new LoginInfoPage(driver);
     }

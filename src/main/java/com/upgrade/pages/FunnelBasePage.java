@@ -9,6 +9,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 public class FunnelBasePage extends BasePage {
 
+
     @FindBy(linkText = "Sign Out")
     private WebElement signOut;
 
@@ -18,13 +19,16 @@ public class FunnelBasePage extends BasePage {
     public FunnelBasePage(WebDriver driver) {
         super(driver);
     }
+    public FunnelBasePage(){}
 
     public SignOutPage clickSignOut() {
         click(menu);
+        pause(4);
         visibilityOfElementLocated(By.linkText("Sign Out"));
         click(signOut);
         textToBePresentInElement(By.tagName("body"), "You've been successfully logged out");
         return new SignOutPage(driver);
     }
+
 
 }

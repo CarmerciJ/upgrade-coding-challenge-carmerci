@@ -47,14 +47,19 @@ public class ContactInfoPage extends BasePage {
 
     public IncomeInfoPage enterContactDetails(Borrower borrower) {
         type(firstName, borrower.getFirstName());
+        pause(2);
         type(lastName, borrower.getLastName());
+        pause(2);
         type(street, borrower.getStreet());
-        pause(1);
+        pause(4);
         click(firstName);
+        pause(4);
         type(city, borrower.getCity());
         type(state, borrower.getState());
+        pause(4);
         type(zipCode, borrower.getZipCode());
         type(dateOfBirth, convertDOBFormat(borrower.getDob()));
+        pause(4);
         click(continueContactInfo);
         return new IncomeInfoPage(driver);
     }

@@ -23,6 +23,7 @@ public class SignInPage extends BasePage {
     public SignInPage(WebDriver driver) {
         super(driver);
     }
+    public SignInPage(){}
 
     public SelectOfferPage signIn(Borrower borrower) {
         type(username, borrower.getEmail());

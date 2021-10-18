@@ -24,6 +24,9 @@ public class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    public BasePage(){}
+
+
 
     protected void type(@NonNull WebElement element, @NonNull String value) {
         log.info(String.format("Setting %s to value %s", element.getAttribute("name"), value));
@@ -145,6 +148,30 @@ public class BasePage {
         else if (element.getAttribute("class") != null)
             display = element.getAttribute("class");
         log.info(String.format("Clicking On: %s", display));
+    }
+
+    /**
+     *  This method
+     * @param xpathText text that is going to be formatted
+     * @return
+     */
+    public String removeSpecialCharactersFromText(String xpathText){
+        String finalString = "";
+        log.info("current text passed in: " + xpathText);
+        if(xpathText.contains(",")){
+            finalString = xpathText.replaceAll(",","");
+            log.info("after removiing the comma: " + finalString);
+        }
+        if(xpathText.contains("$")){
+            finalString = xpathText.replaceAll("\\$","");
+            log.info("after removing $ sign: "+ finalString);
+        }
+        else if(xpathText.contains("%")){
+            finalString = xpathText.replaceAll("%","");
+            log.info("after removing % sign: "+ finalString);
+        }
+        return finalString;
+
     }
 
 }

@@ -26,8 +26,11 @@ public class LandingPage extends BasePage {
 
     public ContactInfoPage enterLoanDetails(Borrower borrower) {
         type(loanAmount, borrower.getDesiredLoanAmount().toString());
+        pause(4);
         selectDropDownByTextIgnoringCase(dropLoanPurposeBtn, borrower.getLoanPurpose());
+        pause(4);
         click(checkYourRateBtn);
+        pause(4);
         return new ContactInfoPage(driver);
     }
 
@@ -36,6 +39,7 @@ public class LandingPage extends BasePage {
         log.info("Navigate to - " + server);
         driver.navigate().to(server);
         waitForWebElements(Arrays.asList(loanAmount));
+        pause(4);
         return this;
     }
 
