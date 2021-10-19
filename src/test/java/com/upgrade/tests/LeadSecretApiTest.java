@@ -71,7 +71,7 @@ public class LeadSecretApiTest extends AbstractTest {
         Assert.assertEquals(apiRequest().getResponse().then().extract().path("httpStatus"),"NOT_FOUND", "The httpstatus for this not found request was incorrect");
         log.info("Assertion for 404 http status validation passed");
 
-        log.info("End of validations");
+        log.info("Finished negative test case validations.......");
     }
 
 
