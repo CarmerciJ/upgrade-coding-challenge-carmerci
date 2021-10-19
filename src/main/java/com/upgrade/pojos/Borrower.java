@@ -22,6 +22,8 @@ public class Borrower {
     @Setter @Getter String loanPurpose;
     @Setter @Getter BigDecimal yearlyIncome;
     @Setter @Getter BigDecimal additionalIncome;
+
+    //Added this values so they are associated with user and can be accessed whenever the values need to be verified
     @Setter @Getter BigDecimal approvedLoanAmount;
     @Setter @Getter double monthlyPayment;
     @Setter @Getter String termLength;
