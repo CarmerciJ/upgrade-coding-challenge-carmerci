@@ -14,7 +14,7 @@ import java.util.UUID;
 public class LeadSecretApiTest extends AbstractTest {
 
     private UUID loanAppUuid = UUID.fromString("b8096ec7-2150-405f-84f5-ae99864b3e96");
-    private UUID incorrectLoanAppUuID = UUID.fromString("b8096ec8-2150-405d-84f5-ad99864b3e96");
+    private UUID incorrectLoanAppUuID = UUID.fromString("b8096ec8-2450-405d-84f5-kd99864b3e92");
     private String url = "https://credapi.credify.tech/api/brfunnelorch/";
 
     /*
