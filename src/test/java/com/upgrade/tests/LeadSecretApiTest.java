@@ -30,7 +30,7 @@ public class LeadSecretApiTest extends AbstractTest {
     @Test
     public void leadSecretTestValidate200code() {
 
-        apiRequest()
+        LeadSecretResponse response =  apiRequest()
                 .addHeader("x-cf-corr-id", UUID.randomUUID().toString())
                 .addHeader("x-cf-source-id", "coding-challenge")
                 .setContentType(ContentType.JSON)
@@ -39,19 +39,20 @@ public class LeadSecretApiTest extends AbstractTest {
                 .getResponse()
                 .as(LeadSecretResponse.class);
 
+
         log.info("Starting Validations......");
         Assert.assertEquals(apiRequest().getResponse().getStatusCode(), 200,"The status code was NOT matched with 200");//Validate that for correct loanAppUuid provided in the payload, the API response code is a 200 (OK)
         log.info("Assertion for status code of 200 passed");
-        Assert.assertEquals(apiRequest().getResponse().then().extract().path("loanAppResumptionInfo.productType"),"PERSONAL_LOAN", "productType did not equal PERSONAL_LOAN"); //make sure productType attribute has value PERSONAL_LOAN
+        Assert.assertEquals(response.getLoanAppResumptionInfo().getProductType(),"PERSONAL_LOAN", "productType did not equal PERSONAL_LOAN"); //make sure productType attribute has value PERSONAL_LOAN
         log.info("Assertion that loanAppResumptionInfo.productType equaled PERSONAL_LOAN passed");
-        Assert.assertEquals(apiRequest().getResponse().then().extract().path("loanAppResumptionInfo.borrowerResumptionInfo.firstName"),"Benjamin", "firstName in borrowerResumptionInfo did not equal Benjamin");// Validate firstName as Benjamin in borrowerResumptionInfo
+        Assert.assertEquals(response.getLoanAppResumptionInfo().getBorrowerResumptionInfo().getFirstName(),"Benjamin", "firstName in borrowerResumptionInfo did not equal Benjamin");// Validate firstName as Benjamin in borrowerResumptionInfo
         log.info("Assertion that loanAppResumptionInfo.borrowerResumptionInfo.firstName equaled Benjamin passed");
         log.info("Finished Validtions....");
     }
 
     @Test
     public void validateResponseCodeForInvalidLoanAppID(){
-        apiRequest()
+        LeadSecretResponse response =    apiRequest()
                 .addHeader("x-cf-corr-id", UUID.randomUUID().toString())
                 .addHeader("x-cf-source-id", "coding-challenge")
                 .setContentType(ContentType.JSON)
